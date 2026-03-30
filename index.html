@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — AI & Automation</title>
+  <title>Yi Shao — Operations & AI</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,7 +31,6 @@
       overflow-x: hidden;
     }
 
-    /* GRID OVERLAY */
     body::before {
       content: '';
       position: fixed;
@@ -44,7 +43,6 @@
       z-index: 0;
     }
 
-    /* NOISE TEXTURE */
     body::after {
       content: '';
       position: fixed;
@@ -63,7 +61,6 @@
       padding: 0 24px;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -97,7 +94,6 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -155,20 +151,11 @@
       transition: all 0.2s;
       cursor: pointer;
     }
-    .btn-primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
     .btn-primary:hover { background: transparent; color: var(--accent); }
-    .btn-ghost {
-      background: transparent;
-      border-color: var(--border);
-      color: var(--muted);
-    }
+    .btn-ghost { background: transparent; border-color: var(--border); color: var(--muted); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* SECTION SHARED */
     section { padding: 100px 0; }
     .section-label {
       font-size: 11px;
@@ -187,13 +174,8 @@
       line-height: 1.1;
     }
 
-    /* DIVIDER */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-    }
+    .divider { border: none; border-top: 1px solid var(--border); }
 
-    /* PIPELINE / PROJECT */
     .project-card {
       border: 1px solid var(--border);
       background: var(--surface);
@@ -214,7 +196,7 @@
       transform-origin: top;
       transition: transform 0.3s;
     }
-    .project-card:hover { border-color: #333; }
+    .project-card:hover { border-color: #c4a882; }
     .project-card:hover::before { transform: scaleY(1); }
 
     .project-header {
@@ -240,19 +222,9 @@
       padding: 4px 10px;
       white-space: nowrap;
     }
-    .project-desc {
-      color: var(--muted);
-      margin-bottom: 28px;
-      line-height: 1.8;
-    }
+    .project-desc { color: var(--muted); margin-bottom: 28px; line-height: 1.8; }
 
-    /* PIPELINE STEPS */
-    .pipeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-bottom: 28px;
-    }
+    .pipeline { display: flex; flex-direction: column; gap: 0; margin-bottom: 28px; }
     .pipeline-step {
       display: flex;
       align-items: flex-start;
@@ -261,12 +233,7 @@
       border-bottom: 1px solid var(--border);
     }
     .pipeline-step:last-child { border-bottom: none; }
-    .step-num {
-      font-size: 10px;
-      color: var(--accent);
-      min-width: 24px;
-      padding-top: 2px;
-    }
+    .step-num { font-size: 10px; color: var(--accent); min-width: 24px; padding-top: 2px; }
     .step-content { flex: 1; }
     .step-name {
       font-size: 12px;
@@ -276,48 +243,22 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .step-detail {
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .step-arrow {
-      color: var(--accent2);
-      font-size: 10px;
-      padding-top: 3px;
-    }
+    .step-detail { font-size: 12px; color: var(--muted); }
+    .step-arrow { color: var(--accent2); font-size: 10px; padding-top: 3px; }
 
-    .project-outcomes {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .outcome {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .outcome::before {
-      content: '✓';
-      color: var(--accent);
-      font-size: 12px;
-    }
+    .project-outcomes { display: flex; gap: 24px; flex-wrap: wrap; }
+    .outcome { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+    .outcome::before { content: '✓'; color: var(--accent); font-size: 12px; }
 
-    /* SKILLS GRID */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
     }
-    .skill-cell {
-      background: var(--surface);
-      padding: 20px 24px;
-      transition: background 0.2s;
-    }
-    .skill-cell:hover { background: #161616; }
+    .skill-cell { background: var(--surface); padding: 20px 24px; transition: background 0.2s; }
+    .skill-cell:hover { background: #f0e8de; }
     .skill-category {
       font-size: 10px;
       letter-spacing: 0.1em;
@@ -325,38 +266,18 @@
       color: var(--accent);
       margin-bottom: 10px;
     }
-    .skill-list {
-      list-style: none;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 2;
-    }
+    .skill-list { list-style: none; font-size: 12px; color: var(--muted); line-height: 2; }
     .skill-list li::before { content: '— '; color: var(--border); }
 
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
     @media (max-width: 600px) {
       .about-grid { grid-template-columns: 1fr; }
       nav .nav-links { display: none; }
     }
     .about-text { color: var(--muted); line-height: 1.9; }
     .about-text p + p { margin-top: 16px; }
-    .about-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .stat {
-      background: var(--surface);
-      padding: 20px 24px;
-    }
+    .about-stats { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .stat { background: var(--surface); padding: 20px 24px; }
     .stat-num {
       font-family: var(--display);
       font-size: 36px;
@@ -368,7 +289,6 @@
     }
     .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* CONTACT */
     .contact-block {
       border: 1px solid var(--border);
       background: var(--surface);
@@ -389,11 +309,7 @@
     .contact-text p { color: var(--muted); font-size: 13px; }
     .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-    }
+    footer { border-top: 1px solid var(--border); padding: 24px 0; }
     footer .wrap {
       display: flex;
       justify-content: space-between;
@@ -412,7 +328,6 @@
       animation: blink 1s step-end infinite;
     }
 
-    /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -444,7 +359,7 @@
       <div class="hero-inner">
         <div class="hero-tag">Open to Operations & Business Analyst Roles</div>
         <h1>
-         I don't just identify<br/>
+          I don't just identify<br/>
           <span class="accent">problems.</span><br/>
           I ship the <span class="accent2">fix.</span><span class="blink"></span>
         </h1>
@@ -530,6 +445,63 @@
         </div>
       </div>
 
+      <div class="project-card" style="margin-top: 2px;">
+        <div class="project-header">
+          <div class="project-title">ATM Site Prospecting Tool</div>
+          <div class="project-tag">Google Places API · Mapping · CRM</div>
+        </div>
+        <p class="project-desc">
+          Our business development process for finding new ATM host locations relied entirely on
+          manual Google Maps searches — a platform that caps results at ~20 per view. The team
+          had to zoom in, collect results, pan the map, and repeat across entire cities. It was
+          slow, inconsistent, and guaranteed to miss locations. I built a web tool using AI that
+          eliminated the manual search entirely, surfacing over 400 qualifying locations across
+          key West Coast markets — replacing it with an automated grid-scanning system backed
+          by a live map dashboard and built-in lead tracker.
+        </p>
+
+        <div class="pipeline">
+          <div class="pipeline-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <div class="step-name">Auto-Zoning & Grid Scan</div>
+              <div class="step-detail">The tool divides any target area into a systematic grid of zones and scans each one automatically via the Google Places API — bypassing the ~20 result cap that made manual search unscalable.</div>
+            </div>
+            <div class="step-arrow">↓</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <div class="step-name">Business Hours Filtering</div>
+              <div class="step-detail">Automatically filters results to only surface qualifying locations: open no later than 10am, close no earlier than 8pm, with 24-hour businesses flagged as priority targets — matching our ATM placement criteria exactly.</div>
+            </div>
+            <div class="step-arrow">↓</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <div class="step-name">Live Map with Location Pins</div>
+              <div class="step-detail">All qualifying businesses are rendered as color-coded pins on an interactive map, giving the team an instant visual overview of the entire prospect landscape across a city — something manual Google Maps searches could never provide.</div>
+            </div>
+            <div class="step-arrow">↓</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <div class="step-name">CRM Dashboard & Lead Tracking</div>
+              <div class="step-detail">A built-in dashboard tracks every location across three states: Potential (identified, not yet contacted), Contacted (outreach in progress), and Owned (ATM installed). Replaced scattered spreadsheets with a single source of truth for the BD team.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-outcomes">
+          <div class="outcome">Eliminated manual map panning</div>
+          <div class="outcome">400+ locations identified across West Coast</div>
+          <div class="outcome">Built-in lead pipeline tracking</div>
+          <div class="outcome">Powered by Google Places API</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -541,64 +513,80 @@
       <div class="section-label">Capabilities</div>
       <h2>Skills & Stack</h2>
       <div class="skills-grid">
-  <div class="skill-cell">
-    <div class="skill-category">AI / ML</div>
-    <ul class="skill-list">
-      <li>OpenAI Whisper</li>
-      <li>RAG Pipelines</li>
-      <li>Vector Embeddings</li>
-      <li>LLM Integration</li>
-      <li>FAISS / ChromaDB</li>
-    </ul>
-  </div>
-  <div class="skill-cell">
-    <div class="skill-category">Languages</div>
-    <ul class="skill-list">
-      <li>Python</li>
-      <li>JavaScript</li>
-      <li>SQL</li>
-      <li>Bash</li>
-    </ul>
-  </div>
-  <div class="skill-cell">
-    <div class="skill-category">Automation</div>
-    <ul class="skill-list">
-      <li>Process Mapping</li>
-      <li>Bot Deployment</li>
-      <li>Data Pipelines</li>
-      <li>API Integration</li>
-    </ul>
-  </div>
-  <div class="skill-cell">
-    <div class="skill-category">Tools</div>
-    <ul class="skill-list">
-      <li>Telegram Bot API</li>
-      <li>OpenAI API</li>
-      <li>Git / GitHub</li>
-      <li>Linux / CLI</li>
-    </ul>
-  </div>
-  <div class="skill-cell">
-    <div class="skill-category">Microsoft Suite</div>
-    <ul class="skill-list">
-      <li>Excel (Advanced)</li>
-      <li>PowerPoint</li>
-      <li>Word</li>
-      <li>MS Teams</li>
-      <li>Google Workspace</li>
-    </ul>
-  </div>
-  <div class="skill-cell">
-    <div class="skill-category">Operations</div>
-    <ul class="skill-list">
-      <li>Project Coordination</li>
-      <li>Budget Tracking</li>
-      <li>Reconciliation</li>
-      <li>Data Analysis</li>
-      <li>Market Research</li>
-    </ul>
-  </div>
-</div>
+        <div class="skill-cell">
+          <div class="skill-category">AI / ML</div>
+          <ul class="skill-list">
+            <li>OpenAI Whisper</li>
+            <li>RAG Pipelines</li>
+            <li>Vector Embeddings</li>
+            <li>LLM Integration</li>
+            <li>FAISS / ChromaDB</li>
+          </ul>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-category">Programming</div>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>SQL</li>
+            <li>Bash</li>
+          </ul>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-category">Automation</div>
+          <ul class="skill-list">
+            <li>Process Mapping</li>
+            <li>Bot Deployment</li>
+            <li>Data Pipelines</li>
+            <li>API Integration</li>
+          </ul>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-category">Tools</div>
+          <ul class="skill-list">
+            <li>Telegram Bot API</li>
+            <li>OpenAI API</li>
+            <li>Git / GitHub</li>
+            <li>Linux / CLI</li>
+          </ul>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-category">Microsoft Suite</div>
+          <ul class="skill-list">
+            <li>Excel (Advanced)</li>
+            <li>PowerPoint</li>
+            <li>Word</li>
+            <li>MS Teams</li>
+            <li>Google Workspace</li>
+          </ul>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-category">Operations</div>
+          <ul class="skill-list">
+            <li>Coordination</li>
+            <li>Budget Tracking</li>
+            <li>Reconciliation</li>
+            <li>Data Analysis</li>
+            <li>Performance Review</li>
+          </ul>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-category">Spoken Languages</div>
+          <ul class="skill-list">
+            <li>English (Native)</li>
+            <li>Mandarin (Native)</li>
+          </ul>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-category">Domain Knowledge</div>
+          <ul class="skill-list">
+            <li>Fintech / Crypto</li>
+            <li>ATM Operations</li>
+            <li>Logistics</li>
+            <li>Economics</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -622,8 +610,9 @@
             files to a production bot, or from a messy spreadsheet to a structured data pipeline.
           </p>
           <p>
-            I'm currently open to roles in AI, automation, operations, or anywhere that rewards
-            building things that matter.
+            Economics graduate from UC San Diego. Background spans fintech, crypto, ATM operations,
+            and logistics. Bilingual in English and Mandarin. Currently open to operations,
+            business analyst, and AI-adjacent roles.
           </p>
         </div>
         <div class="about-stats">
@@ -632,8 +621,12 @@
             <div class="stat-label">Core architecture of choice</div>
           </div>
           <div class="stat">
-            <div class="stat-num">0→1</div>
+            <div class="stat-num">0→2</div>
             <div class="stat-label">Full pipeline builds, no playbook</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">40+</div>
+            <div class="stat-label">ATM sites coordinated & deployed</div>
           </div>
           <div class="stat">
             <div class="stat-num">∞</div>
@@ -655,7 +648,7 @@
           <p>Open to full-time, contract, and consulting work.</p>
         </div>
         <div class="contact-links">
-          <a href="mailto:YiShao9999@GMAIL.COM" class="btn btn-primary">YiShao9999@GMAIL.COM</a>
+          <a href="mailto:YiShao9999@gmail.com" class="btn btn-primary">YiShao9999@gmail.com</a>
           <a href="https://www.linkedin.com/in/yi-shao-527a03259/" class="btn btn-ghost" target="_blank">LinkedIn</a>
           <a href="https://github.com/YiShao-AI" class="btn btn-ghost" target="_blank">GitHub</a>
         </div>
@@ -665,11 +658,4 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="wrap">
-      <span>Built by hand. Deployed on GitHub Pages.</span>
-      <span>2025</span>
-    </div>
-  </footer>
-
-</body>
-</html>
+    <div c
