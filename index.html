@@ -250,6 +250,31 @@
     .outcome { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
     .outcome::before { content: '✓'; color: var(--accent); font-size: 12px; }
 
+    /* SHEET EMBED */
+    .sheet-embed-wrapper {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .sheet-embed-wrapper iframe {
+      width: 100%;
+      height: 540px;
+      border: none;
+      display: block;
+    }
+    .sheet-caption {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .sheet-caption span::before { content: '↳ '; color: var(--accent); }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -273,6 +298,7 @@
     @media (max-width: 600px) {
       .about-grid { grid-template-columns: 1fr; }
       nav .nav-links { display: none; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .about-text { color: var(--muted); line-height: 1.9; }
     .about-text p + p { margin-top: 16px; }
@@ -346,6 +372,7 @@
       <div class="nav-logo">Yi Shao 邵易</div>
       <div class="nav-links">
         <a href="#projects">Projects</a>
+        <a href="#dashboard">Dashboard</a>
         <a href="#skills">Skills</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -507,6 +534,31 @@
 
   <hr class="divider" />
 
+  <!-- LIVE DASHBOARD -->
+  <section id="dashboard">
+    <div class="wrap">
+      <div class="section-label">Mock Spreadsheet</div>
+      <h2>Operations Dashboard</h2>
+      <p style="color: var(--muted); font-size: 13px; margin-top: -28px; margin-bottom: 32px; max-width: 600px;">
+        An Excel portfolio project demonstrating hands-on data skills, with dummy data. 
+        Built to showcase proficiency in operational reporting, revenue tracking, uptime analysis, pipeline management, and pivot table analysis. 
+        All figures are illustrative. Switch tabs below to explore each sheet.
+      </p>
+      <div class="sheet-embed-wrapper">
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR_ZjEcSXLGJoqjzY281J2mflo2obOkUGNsC8zquHXxsxbO0Dl57XmIQF4bBJzAPbpEVsskUcr_MUtK/pubhtml?widget=true&headers=false"
+          allowfullscreen>
+        </iframe>
+        <div class="sheet-caption">
+          <span>ATM Performance Dashboard · Monthly Revenue · Site Prospecting · KPI Summary · Pivot Analysis</span>
+          <span>5 sheets · 4 Pivot Tables</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
   <!-- SKILLS -->
   <section id="skills">
     <div class="wrap">
@@ -625,7 +677,7 @@
             <div class="stat-label">Full pipeline builds, no playbook</div>
           </div>
           <div class="stat">
-            <div class="stat-num">40+</div>
+            <div class="stat-num">80+</div>
             <div class="stat-label">ATM sites coordinated & deployed</div>
           </div>
           <div class="stat">
@@ -658,4 +710,11 @@
 
   <!-- FOOTER -->
   <footer>
-    <div c
+    <div class="wrap">
+      <span>Built by hand. Deployed on GitHub Pages.</span>
+      <span>2026</span>
+    </div>
+  </footer>
+
+</body>
+</html>
