@@ -576,7 +576,7 @@
             <div class="step-num">01</div>
             <div class="step-content">
               <div class="step-name">Source Intake — yt-dlp + Direct Upload</div>
-              <div class="step-detail">Pulls from YouTube, Bilibili, b23.tv, or direct file upload. H.264 codec preference enforced after a real iOS playback issue with AV1 streams — small fixes like this surface only when you actually deploy and use it.</div>
+              <div class="step-detail">Pulls source video from YouTube, Bilibili, or direct file upload via yt-dlp. Codec preference (H.264 over AV1) added after older iPhones silently failed to decode certain streams — the kind of edge case you only catch in production.</div>
             </div>
             <div class="step-arrow">↓</div>
           </div>
@@ -584,7 +584,7 @@
             <div class="step-num">02</div>
             <div class="step-content">
               <div class="step-name">Transcription — Whisper Large-v3</div>
-              <div class="step-detail">Voice-activity-filtered transcription with int8 quantization for CPU efficiency. Same Whisper backbone serves Whisper_Bot directly and feeds Dub_Bot's translation stage.</div>
+              <div class="step-detail">Whisper Large-v3 with VAD filtering and int8 quantization to keep CPU inference fast. One transcription model serves both bots — Whisper_Bot returns it directly, Dub_Bot pipes it into translation.</div>
             </div>
             <div class="step-arrow">↓</div>
           </div>
@@ -592,7 +592,7 @@
             <div class="step-num">03</div>
             <div class="step-content">
               <div class="step-name">Translation — DeepSeek with Timing Budgets</div>
-              <div class="step-detail">Per-line word budgets calculated from each subtitle's time slot. Three-tier fallback (TTS rate adjust → LLM-driven shortening → time-stretch) keeps meaning intact while fitting the spoken duration.</div>
+              <div class="step-detail">DeepSeek translates each line within a per-line word budget calculated from its subtitle slot — dubbed audio has to fit the original time window or it overflows the next subtitle. Three-tier fallback (TTS rate-adjust → LLM shortening → time-stretch) handles overruns without warping meaning.</div>
             </div>
             <div class="step-arrow">↓</div>
           </div>
@@ -600,7 +600,7 @@
             <div class="step-num">04</div>
             <div class="step-content">
               <div class="step-name">Voice Synthesis — Dual Backend</div>
-              <div class="step-detail">Edge-TTS (cloud, fast, generic voice) for routine jobs. F5-TTS local voice-clone when the dub needs to sound like the same speaker. Demucs separates vocals so the new dub mixes over the original music — no speech bleed.</div>
+              <div class="step-detail">Two TTS backends picked per job: Edge-TTS (cloud, fast, generic voice) for routine dubs, or F5-TTS — a local voice-clone trained from a 10-second reference of the original speaker — when the dub needs to sound like that person. Demucs separates vocals beforehand so the new dub mixes over the original music with no speech bleed.</div>
             </div>
             <div class="step-arrow">↓</div>
           </div>
@@ -608,7 +608,7 @@
             <div class="step-num">05</div>
             <div class="step-content">
               <div class="step-name">Delivery — Telegram + Web GUI</div>
-              <div class="step-detail">Same pipeline served two ways: a Telegram bot with /status, /projects, /menu for ops-from-anywhere, and a Gradio web UI for batch jobs. gofile.io fallback for files above Telegram's 50 MB upload cap.</div>
+              <div class="step-detail">Same pipeline served two ways: a Telegram bot for ops-from-anywhere — browse past jobs, fetch outputs, monitor progress all from a phone — and a Gradio web UI for batch processing at the desk. gofile.io fallback handles files above Telegram's 50 MB upload cap.</div>
             </div>
           </div>
         </div>
