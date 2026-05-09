@@ -554,6 +554,70 @@
         </div>
       </div>
 
+      <div class="project-card" style="margin-top: 2px;">
+        <div class="project-header">
+          <div class="project-title">Self-Hosted Video Dubbing & Transcription Suite</div>
+          <div class="project-tag">Multimodal · Local + Cloud · Multi-Interface</div>
+        </div>
+        <p class="project-desc">
+          Two production Telegram bots backed by a shared media-AI pipeline: Whisper_Bot
+          (incoming audio/video → transcription + translation) and Dub_Bot (source video →
+          fully dubbed video, optionally in the original speaker's voice). Built to actually
+          test cost-vs-quality trade-offs in production — cloud APIs where they fit, local
+          models where they win — with the same backbone serving a Telegram bot and a Gradio
+          web UI from one codebase.
+        </p>
+
+        <div class="pipeline">
+          <div class="pipeline-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <div class="step-name">Source Intake — yt-dlp + Direct Upload</div>
+              <div class="step-detail">Pulls from YouTube, Bilibili, b23.tv, or direct file upload. H.264 codec preference enforced after a real iOS playback issue with AV1 streams — small fixes like this surface only when you actually deploy and use it.</div>
+            </div>
+            <div class="step-arrow">↓</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <div class="step-name">Transcription — Whisper Large-v3</div>
+              <div class="step-detail">Voice-activity-filtered transcription with int8 quantization for CPU efficiency. Same Whisper backbone serves Whisper_Bot directly and feeds Dub_Bot's translation stage.</div>
+            </div>
+            <div class="step-arrow">↓</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <div class="step-name">Translation — DeepSeek with Timing Budgets</div>
+              <div class="step-detail">Per-line word budgets calculated from each subtitle's time slot. Three-tier fallback (TTS rate adjust → LLM-driven shortening → time-stretch) keeps meaning intact while fitting the spoken duration.</div>
+            </div>
+            <div class="step-arrow">↓</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <div class="step-name">Voice Synthesis — Dual Backend</div>
+              <div class="step-detail">Edge-TTS (cloud, fast, generic voice) for routine jobs. F5-TTS local voice-clone when the dub needs to sound like the same speaker. Demucs separates vocals so the new dub mixes over the original music — no speech bleed.</div>
+            </div>
+            <div class="step-arrow">↓</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">05</div>
+            <div class="step-content">
+              <div class="step-name">Delivery — Telegram + Web GUI</div>
+              <div class="step-detail">Same pipeline served two ways: a Telegram bot with /status, /projects, /menu for ops-from-anywhere, and a Gradio web UI for batch jobs. gofile.io fallback for files above Telegram's 50 MB upload cap.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-outcomes">
+          <div class="outcome">Two production Telegram bots from one shared media-AI codebase</div>
+          <div class="outcome">Per-job toggle for cost-vs-fidelity (cloud TTS vs local voice clone)</div>
+          <div class="outcome">Music-preserving dubs via vocal/instrumental separation</div>
+          <div class="outcome">Remote ops from phone: status, project browse, file retrieval</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -696,7 +760,7 @@
         </div>
         <div class="about-stats">
           <div class="stat">
-            <div class="stat-num">2</div>
+            <div class="stat-num">4</div>
             <div class="stat-label">AI tools shipped to production</div>
           </div>
           <div class="stat">
