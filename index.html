@@ -560,12 +560,15 @@
           <div class="project-tag">Multimodal · Local + Cloud · Multi-Interface</div>
         </div>
         <p class="project-desc">
-          Two production Telegram bots backed by a shared media-AI pipeline: Whisper_Bot
-          (incoming audio/video → transcription + translation) and Dub_Bot (source video →
-          fully dubbed video, optionally in the original speaker's voice). Built to actually
-          test cost-vs-quality trade-offs in production — cloud APIs where they fit, local
-          models where they win — with the same backbone serving a Telegram bot and a Gradio
-          web UI from one codebase.
+          Foreign-language video content stays foreign — existing auto-dub tools either feel
+          robotic or live behind paywalls. I built two open Telegram bots on one shared media-AI
+          pipeline: Whisper_Bot (incoming audio/video → transcription + translation) and
+          Dub_Bot (source video → fully dubbed version, optionally in the original speaker's
+          voice). The interesting work isn't wiring up the models — it's the production
+          decisions: when a fast cloud TTS beats a local voice clone, how to keep music intact
+          when replacing speech, how to monitor and retrieve long-running jobs from a phone.
+          Same codebase, two interfaces (Telegram + Gradio web UI), every trade-off
+          load-tested by daily use.
         </p>
 
         <div class="pipeline">
