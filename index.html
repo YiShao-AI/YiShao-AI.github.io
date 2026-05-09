@@ -444,7 +444,7 @@
         <p class="project-desc">
           Identified a recurring bottleneck in a customer support team: agents were relying on memory
           and outdated documentation to answer questions, leading to slow, inconsistent responses.
-          Built an end-to-end AI assistant — from raw audio to a live Telegram bot — entirely from scratch.
+          Built an end-to-end AI assistant — from raw audio recordings to a live in-chat tool — entirely from scratch.
         </p>
 
         <div class="pipeline">
@@ -483,8 +483,8 @@
           <div class="pipeline-step">
             <div class="step-num">05</div>
             <div class="step-content">
-              <div class="step-name">Telegram Bot Deployment — Python</div>
-              <div class="step-detail">Deployed the full pipeline as a Telegram bot using Python (python-telegram-bot), giving support staff real-time access mid-conversation with zero new tooling required.</div>
+              <div class="step-name">In-Chat Deployment — Python</div>
+              <div class="step-detail">Deployed the full pipeline as a chatbot accessible inside the team's existing messaging client, built in Python — giving support staff real-time access mid-conversation with zero new software to install.</div>
             </div>
           </div>
         </div>
@@ -561,14 +561,14 @@
         </div>
         <p class="project-desc">
           Foreign-language video content stays foreign — existing auto-dub tools either feel
-          robotic or live behind paywalls. I built two open Telegram bots on one shared media-AI
-          pipeline: Whisper_Bot (incoming audio/video → transcription + translation) and
-          Dub_Bot (source video → fully dubbed version, optionally in the original speaker's
-          voice). The interesting work isn't wiring up the models — it's the production
-          decisions: when a fast cloud TTS beats a local voice clone, how to keep music intact
-          when replacing speech, how to monitor and retrieve long-running jobs from a phone.
-          Same codebase, two interfaces (Telegram + Gradio web UI), every trade-off
-          load-tested by daily use.
+          robotic or live behind paywalls. I built two production AI services on one shared
+          media-AI pipeline: Whisper_Bot (incoming audio/video → transcription + translation)
+          and Dub_Bot (source video → fully dubbed version, optionally in the original
+          speaker's voice). The interesting work isn't wiring up the models — it's the
+          production decisions: when a fast cloud TTS beats a local voice clone, how to keep
+          music intact when replacing speech, how to monitor and retrieve long-running jobs
+          remotely. Same codebase, two delivery surfaces (mobile chat client + desktop web
+          app), every trade-off load-tested by daily use.
         </p>
 
         <div class="pipeline">
@@ -576,7 +576,7 @@
             <div class="step-num">01</div>
             <div class="step-content">
               <div class="step-name">Source Intake — yt-dlp + Direct Upload</div>
-              <div class="step-detail">Pulls source video from YouTube, Bilibili, or direct file upload via yt-dlp. Codec preference (H.264 over AV1) added after older iPhones silently failed to decode certain streams — the kind of edge case you only catch in production.</div>
+              <div class="step-detail">Ingests source video from major video-sharing platforms or direct file upload (yt-dlp under the hood). Codec preference (H.264 over AV1) added after older mobile devices silently failed to decode certain streams — the kind of edge case you only catch in production.</div>
             </div>
             <div class="step-arrow">↓</div>
           </div>
@@ -584,7 +584,7 @@
             <div class="step-num">02</div>
             <div class="step-content">
               <div class="step-name">Transcription — Whisper Large-v3</div>
-              <div class="step-detail">Whisper Large-v3 with VAD filtering and int8 quantization to keep CPU inference fast. One transcription model serves both bots — Whisper_Bot returns it directly, Dub_Bot pipes it into translation.</div>
+              <div class="step-detail">Whisper Large-v3 with VAD filtering and int8 quantization to keep CPU inference fast. One transcription model serves both products — Whisper_Bot returns it directly, Dub_Bot pipes it into translation.</div>
             </div>
             <div class="step-arrow">↓</div>
           </div>
@@ -608,16 +608,16 @@
             <div class="step-num">05</div>
             <div class="step-content">
               <div class="step-name">Delivery — Telegram + Web GUI</div>
-              <div class="step-detail">Same pipeline served two ways: a Telegram bot for ops-from-anywhere — browse past jobs, fetch outputs, monitor progress all from a phone — and a Gradio web UI for batch processing at the desk. gofile.io fallback handles files above Telegram's 50 MB upload cap.</div>
+              <div class="step-detail">Same pipeline served two ways: a mobile chat interface for ops-from-anywhere — browse past jobs, fetch outputs, monitor progress all from a phone — and a Gradio-powered web UI for batch processing at the desk. Files exceeding the chat platform's upload cap auto-mirror to a remote share link.</div>
             </div>
           </div>
         </div>
 
         <div class="project-outcomes">
-          <div class="outcome">Two production Telegram bots from one shared media-AI codebase</div>
+          <div class="outcome">Two production AI services from one shared media-AI codebase</div>
           <div class="outcome">Per-job toggle for cost-vs-fidelity (cloud TTS vs local voice clone)</div>
           <div class="outcome">Music-preserving dubs via vocal/instrumental separation</div>
-          <div class="outcome">Remote ops from phone: status, project browse, file retrieval</div>
+          <div class="outcome">Remote ops from anywhere: status, project browse, file retrieval</div>
         </div>
       </div>
 
